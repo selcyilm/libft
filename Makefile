@@ -8,19 +8,15 @@ CFLAGS = -Wall -Werror -Wextra
 
 HEADERS = libft.h
 
-RM = rm -f
+RM = @rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADERS)
-	ar rcs $(NAME) $(OBJS)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	@ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
+	@gcc $(CFLAGS) -c $< -o $@
 
 
 clean:
