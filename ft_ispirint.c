@@ -6,13 +6,13 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/24 17:43:01 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/09/24 17:43:03 by selcyilm      ########   odam.nl         */
+/*   Updated: 2023/09/24 21:45:35 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ispirint(int c)
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }
