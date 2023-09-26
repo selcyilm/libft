@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/24 17:43:15 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/09/24 20:47:21 by selcyilm      ########   odam.nl         */
+/*   Updated: 2023/09/26 20:16:22 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return (&str[i]);
 		i++;
 	}

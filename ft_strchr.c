@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/24 17:43:32 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/09/24 22:06:57 by selcyilm      ########   odam.nl         */
+/*   Updated: 2023/09/26 20:13:48 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (str[i] == (char)c)
 			return (&str[i]);
-		s++;
+		i++;
 	}
-	if (str[i] == 0)
+	if (str[i] == (char)c)
 		return (&str[i]);
 	return (NULL);
 }

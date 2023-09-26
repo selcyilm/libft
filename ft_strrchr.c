@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrch.c                                        :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/24 17:43:49 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/09/24 20:51:58 by selcyilm      ########   odam.nl         */
+/*   Updated: 2023/09/26 20:17:52 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(str);
 	while (i >= 0)
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return (&str[i]);
 		i--;
 	}
