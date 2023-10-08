@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcat.c                                       :+:    :+:            */
+/*   ft_substr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/08 14:04:17 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/08 14:35:24 by selcyilm      ########   odam.nl         */
+/*   Created: 2023/10/08 16:30:18 by selcyilm      #+#    #+#                 */
+/*   Updated: 2023/10/08 16:42:02 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  The strlcat() function appends the NUL-terminated string src to 
-	the end of dst.  It will append at most size - strlen(dst) -
-	1 bytes, NUL-terminating the result.*/
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+/*Allocates (with malloc(3)) and returns a substring
+from the string ’s’.
+The substring begins at index ’start’ and is of
+maximum size ’len’.
+RETURN VALUE
+The substring.
+NULL if the allocation fails.*/
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*p;
 	size_t	i;
-	size_t	j;
 
+	p = malloc(sizeof(char) * (len + 1));
+	if (!p)
+		return (NULL);
 	i = 0;
-	j = 0;
-	while (dst[i] && i < size)
+	while (s[i] && i < len)
+	{
+		p[i] = s[start + i];
 		i++;
-	while (src[j] && (i + j + 1) < size)
-	{
-		dst[i + j] = src[j];
-		j++;
 	}
-	if (i < size)
-	{
-		dst[i + j] = 0;
-	}
-	return (i + ft_strlen(src));
+	p[i] = 0;
+	return (p);
 }
