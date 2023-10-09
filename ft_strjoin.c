@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_substr.c                                        :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/08 16:30:18 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/08 20:56:21 by selcyilm      ########   odam.nl         */
+/*   Created: 2023/10/08 21:10:03 by selcyilm      #+#    #+#                 */
+/*   Updated: 2023/10/09 20:10:46 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*Allocates (with malloc(3)) and returns a substring
-from the string ’s’.
-The substring begins at index ’start’ and is of
-maximum size ’len’.
+/*Allocates (with malloc(3)) and returns a new
+string, which is the result of the concatenation
+of ’s1’ and ’s2’.
 RETURN VALUE
-The substring.
+The new string.
 NULL if the allocation fails.*/
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	int		i;
+	int		j;
+	int		size;
 	char	*p;
-	size_t	i;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	p = (char *)malloc(sizeof(char) * (len + 1));
+	size = ft_strlen(s1) + ft_strlen(s2);
+	p = malloc(sizeof(char) * (size + 1));
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (s[i + start] && i < len)
+	while (s1[i])
 	{
-		p[i] = s[start + i];
+		p[i] = s1[i];
 		i++;
 	}
-	p[i] = 0;
+	j = 0;
+	while (s2[j])
+	{
+		p[i + j] = s2[j];
+		j++;
+	}
+	p[i + j] = 0;
 	return (p);
 }
