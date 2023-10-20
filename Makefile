@@ -1,31 +1,32 @@
-SRCS = $(wildcard *.c)
+NAME	=   libft.a
+SRCS	= $(wildcard *.c)
 
-OBJS = $(SRCS: .c=.o)
+OBJS	= $(SRCS:.c=.o)
+RM		= rm -f
+LIBC	= ar -rcs
+FLAGS	= -Wall -Wextra -Werror
+INCS	= .
+GREEN=\033[1;36m
+RED=\033[0;31m
+COLOUR_END=\033[0m
 
-NAME = libft.a
+.c.o :
+	@${CC} ${FLAGS} -c $< -o $@ -I${INCS}
 
-CFLAGS = -Wall -Werror -Wextra
-
-HEADERS = libft.h
-
-RM = @rm -f
+$(NAME): ${OBJS} 
+	@${LIBC} $(NAME) $(OBJS)
+	@echo "$(GREEN)Creating $(RED)$(NAME) $(COLOUR_END)"
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADERS)
-	@ar rcs $(NAME) $(OBJS)
-
-%.o: %.c
-	@gcc $(CFLAGS) -c $< -o $@
-
+fclean: clean
+	@$(RM) $(NAME)
+	@echo "$(RED)Cleaning $(GREEN).a $(RED)File$(COLOUR_END)"
 
 clean:
-	$(RM) $(OBJS)
-
-
-fclean: clean
-	$(RM) $(NAME)
+	@$(RM) -f $(OBJS)
+	@echo "$(GREEN)Cleaning $(RED)Object $(GREEN)Files$(COLOUR_END)"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re .c.o
