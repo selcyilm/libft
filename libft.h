@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/24 17:44:36 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/20 13:18:23 by selcyilm      ########   odam.nl         */
+/*   Updated: 2023/10/20 13:59:19 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <ctype.h>
 # include <stdlib.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 // CTYPE.H
 
 int		ft_isalpha(int c);
@@ -61,4 +66,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+//BONUS
+t_list	*ft_lstnew(void *content);
 #endif
