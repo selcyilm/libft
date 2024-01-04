@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_lstnew_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 14:45:41 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/20 14:46:16 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/04 14:39:15 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new_list;
 
 	new_list = ft_calloc(1, sizeof(t_list));
+	if (!new_list)
+		return (NULL);
 	if (!new_list)
 		return (NULL);
 	new_list->content = content;

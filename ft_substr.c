@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/08 16:30:18 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/08 20:56:21 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/04 17:29:09 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > ft_strlen(s) || !ft_strlen(s))
 		return (ft_strdup(""));
-	p = (char *)malloc(sizeof(char) * (len + 1));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	p = malloc(sizeof(char) * (len + 1));
 	if (!p)
 		return (NULL);
 	i = 0;

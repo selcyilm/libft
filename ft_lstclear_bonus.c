@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 15:48:17 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/20 15:50:37 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/04 14:43:16 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;
 
-	if (!*lst)
+	if (!lst || !del)
 		return ;
-	while (lst != NULL)
+	while (*lst != NULL)
 	{
 		current = (*lst)->next;
 		ft_lstdelone(*lst, del);

@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 15:31:57 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/20 15:32:04 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/04 14:36:54 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			*lst = new;
 		else
 		{
-			last = ft_lstlast(lst);
+			last = ft_lstlast(*lst);
 			last->next = new;
 		}
 	}
