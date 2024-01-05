@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/08 16:30:18 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/01/04 17:29:09 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/05 11:09:43 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,18 @@ NULL if the allocation fails.*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
-	size_t	i;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s) || !ft_strlen(s))
+	if (ft_strlen(s) <= start)
 		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		len = ft_strlen(s) - start;
-	p = malloc(sizeof(char) * (len + 1));
+	if (len >= ft_strlen(s) - start)
+		len = ft_strlen(s) - start + 1;
+	else
+		len++;
+	p = malloc((len) * sizeof(char));
 	if (!p)
 		return (NULL);
-	i = 0;
-	while (s[i + start] && i < len)
-	{
-		p[i] = s[start + i];
-		i++;
-	}
-	p[i] = 0;
+	ft_strlcpy(p, &s[start], len);
 	return (p);
 }
