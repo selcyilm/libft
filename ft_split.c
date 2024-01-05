@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 10:19:16 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/01/04 17:29:16 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/05 10:17:50 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ with a NULL pointer.
 RETURN VALUE
 The array of new strings resulting from the split.
 NULL if the allocation fails.*/
-/*static int	ft_count(char const *str, char c)
+static int	ft_count(char const *str, char c)
 {
 	int	count;
 
@@ -64,9 +64,9 @@ char	**ft_split(char const *s, char c)
 	}
 	list[i] = 0;
 	return (list);
-}*/
+}
 
-int	ft_word(char const *str, char c)
+/*int	ft_word(char const *str, char c)
 {
 	int	i;
 	int	word;
@@ -139,7 +139,7 @@ char	**ft_split(char const *s, char c)
 	return (p);
 }
 
-/*int main(int ac, char **av)
+int main(int ac, char **av)
 {
 	if (ac == 3)
 	{
