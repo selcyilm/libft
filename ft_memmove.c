@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/08 15:15:14 by selcyilm      #+#    #+#                 */
-/*   Updated: 2023/10/08 15:15:16 by selcyilm      ########   odam.nl         */
+/*   Updated: 2024/01/05 10:21:58 by selcyilm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d_dest = (unsigned char *)dest;
 	s_src = (unsigned char *)src;
-	if (d_dest == 0 && s_src == 0)
+	if (!d_dest && !s_src)
 		return (0);
 	if (d_dest > s_src)
 	{
